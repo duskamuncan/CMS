@@ -1,0 +1,226 @@
+﻿<Page x:Class="projekat2.ShowMyth"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:fa5="http://schemas.fontawesome.com/icons/"
+      xmlns:notifications="clr-namespace:Notification.Wpf.Controls;assembly=Notification.Wpf"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:projekat2"
+      mc:Ignorable="d" 
+      Title="ShowMyth"
+      Background="Transparent"
+      x:Name="ShowMythPage">
+
+    <Canvas 
+             Width="450" 
+             Height="550">
+        <notifications:NotificationArea
+                 x:Name="WindowNotificationArea"
+                 Panel.ZIndex="1000"
+                 MaxItems="3"
+                 Position="TopRight"/>
+        <Path 
+                 Name ="PagePath"
+                 Fill="SandyBrown"
+                 Stroke="SaddleBrown"
+                 StrokeThickness="2">
+            <Path.Data>
+                <PathGeometry>
+                    <PathFigure StartPoint="0,0">
+                        <LineSegment Point="50,100"/>
+                        <LineSegment Point="50,450"/>
+                        <LineSegment Point="0,550"/>
+                        <LineSegment Point="450,550"/>
+                        <LineSegment Point="400,450"/>
+                        <LineSegment Point="400,100"/>
+                        <LineSegment Point="450,0"/>
+                    </PathFigure>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+        <Grid 
+            Width="450" 
+            Height="550">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label
+                x:Name="TitleLabel"
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Margin="0,10,0,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Content="MYTH"
+                FontSize="40"
+                FontFamily="Agency FB"
+                />
+
+            <Button
+                x:Name="CloseButton"
+                Width="90"
+                Height="40"
+                Grid.Row="6"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                BorderBrush="SaddleBrown"
+                Cursor="Hand"
+                Click="CloseButton_Click"
+                ToolTip="Close the application">
+                <StackPanel 
+                    Orientation="Horizontal">
+                    <fa5:SvgAwesome
+                        Height="20"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="SaddleBrown"
+                        Icon="Solid_WindowClose" />
+                    <TextBlock
+                        Margin="3,0,0,0"
+                        VerticalAlignment="Center"
+                        Text="CLOSE" 
+                        FontFamily="Agency FB"
+                        FontSize="20"
+                        Width="45"  />
+                </StackPanel>
+            </Button>
+            <Label
+                x:Name="GodLabel"
+                Grid.Row="1"
+                Grid.Column="0"
+                Content="GOD:"
+                FontFamily="Agency FB"
+                HorizontalAlignment="Center"
+                HorizontalContentAlignment="Left"
+                VerticalContentAlignment="Center"
+                Margin="10"
+                FontSize="25" />
+
+            <TextBlock
+                x:Name="GodTextBlock"
+                Grid.Row="1"
+                Grid.Column="1"
+                Text="{Binding Myths}"
+                Width="140"
+                Height="60"
+                HorizontalAlignment="Left"
+                TextWrapping="Wrap" 
+                FontSize="25"
+                Margin="0,20,0,0"
+                FontFamily="Agency FB"/>
+            <Label
+                x:Name="PhotoLabel"
+                Grid.Row="2"
+                Grid.Column="1"
+                Content="PHOTO:"
+                FontFamily="Agency FB"
+                HorizontalContentAlignment="Left"
+                VerticalContentAlignment="Center"
+                Margin="40,-20,10,20"
+                FontSize="25"/>
+            <Image 
+                    x:Name="Photo" 
+                    Source= "{Binding PathToPhoto}" 
+                    Width="150" 
+                    Height="180"
+                    Grid.Row="2"
+                Grid.RowSpan="3"
+                    Grid.Column="1"
+                VerticalAlignment="Bottom"
+                    HorizontalAlignment="Left"
+                Margin="12,10,10,10"/>
+            <Label
+                x:Name="DescriptionLabel"
+                Grid.Row="2"
+                Grid.Column="0"
+                Content="DESCRIPTION:"
+                FontFamily="Agency FB"
+                HorizontalContentAlignment="Left"
+                VerticalContentAlignment="Center"
+                Margin="80,-20,10,20"
+                FontSize="25"/>
+            <RichTextBox
+                Name="DescriptionRichTextBox"
+                FontFamily="Agency FB"
+                Grid.Row="2"
+                Grid.RowSpan="3"
+                Grid.Column="0"
+                Width="150"
+                Height="180"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Center"
+                IsReadOnly="True"
+                Margin="50,10,0,10"
+                ScrollViewer.VerticalScrollBarVisibility="Visible">
+                <FlowDocument>
+                    <Paragraph>
+                        <Run Name="RichTextBoxText" Foreground="Beige" FontSize="15"/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <Label
+                x:Name="RatingLabel"
+                Grid.Row="5"
+                Grid.Column="0"
+                Content="RATING:"
+                FontFamily="Agency FB"
+                Width="80"
+                HorizontalAlignment="Left"
+                HorizontalContentAlignment="Left"
+                VerticalContentAlignment="Center"
+                Margin="60,10,10,10"
+                FontSize="25"/>
+            <TextBlock
+                x:Name="RatingTextBlock"
+                Grid.Row="5"
+                Grid.Column="0"
+                Width="60"
+                Height="60"
+                Text="{Binding Rating}"
+                HorizontalAlignment="Left"
+                TextWrapping="Wrap" 
+                FontSize="25"
+                Margin="145,20,0,8"/>
+            <Label
+                x:Name="DateLabel"
+                Grid.Row="5"
+                Grid.Column="1"
+                Content="DATE:"
+                Width="60"
+                FontFamily="Agency FB"
+                HorizontalAlignment="Left"
+                HorizontalContentAlignment="Left"
+                VerticalContentAlignment="Center"
+                Margin="10,10,10,10"
+                FontSize="25"/>
+            <TextBlock
+                x:Name="DateTextBlock"
+                Grid.Row="5"
+                Grid.Column="1"
+                Width="80"
+                Height="40"
+                Text="{Binding Date}"
+                HorizontalAlignment="Right"
+                TextWrapping="Wrap" 
+                FontSize="15"
+                Margin="0,0,70,0"/>
+        </Grid>
+    </Canvas>
+</Page>

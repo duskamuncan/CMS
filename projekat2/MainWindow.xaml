@@ -1,0 +1,181 @@
+﻿<Window x:Class="projekat2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:fa5="http://schemas.fontawesome.com/icons/"
+        xmlns:notifications="clr-namespace:Notification.Wpf.Controls;assembly=Notification.Wpf"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:projekat2"
+        mc:Ignorable="d"
+        Title="Greek mythology" 
+    AllowsTransparency="True"
+    Background="Transparent"
+    MouseLeftButtonDown="Window_MouseLeftButtonDown"
+    SizeToContent="WidthAndHeight"
+    WindowStyle="None">
+    <Frame
+    x:Name="LoginFrame"
+        JournalOwnership="OwnsJournal">
+        
+        <Frame.Content>
+            
+            <Canvas
+            Width="450" 
+            Height="550" >
+                <Canvas.Resources>
+                    <DropShadowEffect
+                    x:Key="MouseOverDropShadowEffect"
+                    Direction="320"
+                    Opacity="80"
+                    ShadowDepth="10"
+                    Color="SandyBrown" />
+                </Canvas.Resources>
+                <notifications:NotificationArea
+                    x:Name="WindowNotificationArea"
+                    Panel.ZIndex="1000"
+                    MaxItems="3"
+                    Position="TopRight"/>
+                <Path
+                    Name ="UIPath"
+                    Fill="Yellow"
+                    Stroke="SaddleBrown"
+                    StrokeThickness="2">
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathFigure StartPoint="160,0">
+                                <LineSegment Point="0,280"/>
+                                <LineSegment Point="120,280"/>
+                                <LineSegment Point="50,550"/>
+                                <LineSegment Point="450,150"/>
+                                <LineSegment Point="300,150"/>
+                                <LineSegment Point="400,0"/>
+                            </PathFigure>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+                <Label
+         x:Name="TitleLabel"
+         Content="LOGIN"
+         HorizontalAlignment="Left" 
+        Canvas.Left="220" 
+        Canvas.Top="12" 
+        VerticalAlignment="Top"
+        FontFamily="Agency FB"
+        FontSize="30"
+        FontWeight="Bold"
+            />
+                <Label
+        x:Name="UsernameLabel"
+        Content="USERNAME:"
+        FontFamily="Agency FB"
+        FontSize="20" 
+        Canvas.Left="128" 
+        Canvas.Top="70"
+        />
+                <TextBox
+        x:Name="UsernameTextBox"
+        Width="180"
+        Height="30"
+        Text=""
+        TextWrapping="Wrap" 
+        Canvas.Left="111" 
+        Canvas.Top="109" 
+        HorizontalAlignment="Left" 
+        VerticalAlignment="Center"
+        />
+                <Label
+        x:Name="UsernameErrorLabel"
+        Width="180"
+        Height="30"
+        Content=""
+        Canvas.Left="100" 
+        Canvas.Top="135" 
+        HorizontalAlignment="Left" 
+        VerticalAlignment="Center"
+        Foreground="Red"/>
+                <Label
+        x:Name="PasswordLabel"
+        Content="PASSWORD:"
+        FontFamily="Agency FB"
+        FontSize="20" 
+        Canvas.Left="70" 
+        Canvas.Top="170"
+        />
+                <PasswordBox
+        x:Name="PasswordTextBox"
+        Width="180"
+        Height="30"
+        PasswordChar="*"
+        Canvas.Left="60" 
+        Canvas.Top="210" 
+        HorizontalAlignment="Left" 
+        VerticalAlignment="Center"
+        />
+                <Label 
+        x:Name="PasswordErrorLabel"
+        Width="180"
+        Height="30"
+        Canvas.Left="50" 
+        Canvas.Top="235" 
+        HorizontalAlignment="Left" 
+        VerticalAlignment="Center"
+        Content=""
+        Foreground="Red"/>
+                <Button
+        x:Name="LoginButton"
+        Width="70"
+        Height="30"
+        BorderBrush="SaddleBrown"
+        Cursor="Hand"
+        Click="LoginButton_Click"
+        ToolTip="Login to your account"
+        Canvas.Left="200" 
+        Canvas.Top="275">
+                    <StackPanel Orientation="Horizontal">
+                        <fa5:SvgAwesome
+            Height="15"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Foreground="SaddleBrown"
+            Icon="Solid_DoorOpen" />
+                        <TextBlock
+            Margin="3,0,0,0"
+            VerticalAlignment="Center"
+            Text="LOGIN" 
+            FontFamily="Agency FB"
+            FontSize="15"
+            Width="36"  />
+                    </StackPanel>
+                </Button>
+                <Button 
+        x:Name="CloseButton"
+        Width="70"
+        Height="30"
+        BorderBrush="SaddleBrown"
+        Click="CloseButton_Click"
+        Cursor="Hand"
+        ToolTip="Close the application" 
+        Canvas.Left="135" 
+        Canvas.Top="336" 
+        HorizontalAlignment="Left" 
+        VerticalAlignment="Top">
+                    <StackPanel Orientation="Horizontal">
+                        <fa5:SvgAwesome
+            Height="15"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Foreground="SaddleBrown"
+            Icon="Solid_WindowClose" />
+                        <TextBlock
+           Margin="3,0,0,0"
+           VerticalAlignment="Center"
+           Text="CLOSE" 
+            FontFamily="Agency FB"
+            FontSize="15"
+           Width="36"  />
+                    </StackPanel>
+                </Button>
+            </Canvas>
+        </Frame.Content>
+    </Frame>
+</Window>

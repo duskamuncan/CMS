@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<ArrayOfMyth xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Myth>
+    <_isSelected>false</_isSelected>
+    <rating>5</rating>
+    <god>Atalanta</god>
+    <pathToPhoto>C:\Users\Duska\Desktop\iuis\projekat2\projekat2\Atalanta.jpg</pathToPhoto>
+    <pathToDescriptionRtf>C:\Users\Duska\Desktop\iuis\projekat2\projekat2\RTF\Atalanta.rtf</pathToDescriptionRtf>
+    <Date>2024-03-28T02:13:38.5304431+01:00</Date>
+    <IsSelected>false</IsSelected>
+    <Rating>5</Rating>
+    <God>Atalanta</God>
+    <PathToPhoto>C:\Users\Duska\Desktop\iuis\projekat2\projekat2\Atalanta.jpg</PathToPhoto>
+    <PathToDescriptionRtf>C:\Users\Duska\Desktop\iuis\projekat2\projekat2\RTF\Atalanta.rtf</PathToDescriptionRtf>
+  </Myth>
+</ArrayOfMyth>
